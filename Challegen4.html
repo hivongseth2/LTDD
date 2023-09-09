@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> CÔNG CỤ TÍNH TIỀN BOA</h1>
+    <label>Nhập số tiền</label>
+    <input id="input" name="input">
+    <button onclick="calculate()">Tính tiền</button>
+    <input id="result" value="" disabled>
+    <script>
+        const calculate = () => {
+            const money = parseFloat(document.getElementById("input").value)
+            const result = document.getElementById("result")
+
+            const tip = money > 50 && money < 300 ? money / 100 * 15 : money <= 50 ? money = 0 : money / 100 * 20;
+
+            result.value = tip
+        }
+    </script>
+</body>
+
+</html>

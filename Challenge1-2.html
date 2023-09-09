@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> BAI TAP 1 - BMI</h1>
+    <h2>Thong tin cua ban thu nhat </h2>
+    <label for="height1">Nhap chieu cao cua ban : </label><input id="height1" name="height1">
+    <label for="w1">Nhap can nang cua ban : </label><input id="w1" name="w1">
+
+    <h2>Thong tin cua ban thu hai </h2>
+    <label for="height2">Nhap chieu cao cua ban : </label><input id="height2" name="height2">
+    <label for="w2">Nhap can nang cua ban : </label><input id="w2" name="w2">
+    <button onclick="calculateBMI()">Tinh BMI</button>
+    <h3>KẾT QUẢ </h3>
+    <p id="result"></p>
+
+    <script>
+        function calculateBMI() {
+
+            const height1 = parseFloat(document.getElementById('height1').value);
+            const weight1 = parseFloat(document.getElementById('w1').value);
+            const height2 = parseFloat(document.getElementById('height2').value);
+            const weight2 = parseFloat(document.getElementById('w2').value);
+
+
+            const bmiMark = weight1 / (height1 * height1);
+            const bmiJohn = weight2 / (height2 * height2);
+
+            const markHigherBMI = bmiMark > bmiJohn;
+
+            const resultParagraph = document.getElementById('result');
+            if (markHigherBMI) {
+                resultParagraph.textContent = `Mark BMI (${bmiMark}) has a higher BMI than John BMI (${bmiJohn}).`;
+            } else {
+                resultParagraph.textContent = `John BMI (${bmiJohn}) has a higher BMI than Mark BMI(${bmiMark}).`;
+            }
+        }
+    </script>
+</body>
+
+</html>
