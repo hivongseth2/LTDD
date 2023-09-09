@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOLPHIN INPUT </h1>
+    <label for="d1">Điểm 1: </label>
+    <input id="d1" name="d1">
+    <label for="d2">Điểm 2: </label>
+    <input id="d2" name="d2">
+    <label for="d3">Điểm 3: </label>
+    <input id="d3" name="d3">
+
+
+    <h1>KOALA INPUT </h1>
+    <label for="k1">Điểm 1: </label>
+    <input id="k1" name="k1">
+    <label for="k2">Điểm 2: </label>
+    <input id="k2" name="k2">
+    <label for="k3">Điểm 3: </label>
+    <input id="k3" name="k3">
+
+    <button onclick="checkWinner()">Tính điểm trung bình</button>
+
+    <h3>KẾT QUẢ </h3>
+    <p id="result"></p>
+
+    <script>
+        const calcAverage = (b1, b2, b3) => {
+
+
+
+            return (b1 + b2 + b3) / 3;
+
+        };
+
+        const checkWinner = () => {
+
+
+            const d1 = parseFloat(document.getElementById("d1").value);
+            const d2 = parseFloat(document.getElementById("d2").value);
+            const d3 = parseFloat(document.getElementById("d3").value);
+            const k1 = parseFloat(document.getElementById("k1").value);
+            const k2 = parseFloat(document.getElementById("k2").value);
+            const k3 = parseFloat(document.getElementById("k3").value);
+            const rs = document.getElementById("result");
+
+            const dolphinAverage = calcAverage(d1, d2, d3)
+            const koalaAverage = calcAverage(k1, k2, k3)
+            rs.textContent = dolphinAverage >= koalaAverage * 2 ? `Dolphin win (${dolphinAverage} vs. ${koalaAverage})` : koalaAverage >= dolphinAverage * 2 ? `Koala win (${koalaAverage} vs. ${dolphinAverage})` : "No team win"
+
+        }
+    </script>
+</body>
+
+</html>

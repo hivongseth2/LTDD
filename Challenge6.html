@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tip Calculator</title>
+    <script>
+
+        function calcTip(bill) {
+            if (bill >= 50 && bill <= 300) {
+                return bill * 0.15;
+            } else {
+                return bill * 0.20;
+            }
+        }
+
+
+        function calculate() {
+            var billInputs = document.getElementsByClassName("bill-input");
+            var tipOutputs = document.getElementsByClassName("tip-output");
+            var totalOutputs = document.getElementsByClassName("total-output");
+            console.log(billInputs)
+
+            for (var i = 0; i < billInputs.length; i++) {
+                var billValue = parseFloat(billInputs[i].value);
+                var tipValue = calcTip(billValue);
+                var totalValue = billValue + tipValue;
+
+                tipOutputs[i].textContent = "$" + tipValue.toFixed(2);
+                totalOutputs[i].textContent = "$" + totalValue.toFixed(2);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Challenge 6: Tip Calculator</h1>
+
+    <div>
+        <label>Bill 1: $</label>
+        <input class="bill-input" type="number" value="125">
+        <p>Tip: <span class="tip-output">$0.00</span></p>
+        <p>Total: <span class="total-output">$0.00</span></p>
+    </div>
+
+    <div>
+        <label>Bill 2: $</label>
+        <input class="bill-input" type="number" value="555">
+        <p>Tip: <span class="tip-output">$0.00</span></p>
+        <p>Total: <span class="total-output">$0.00</span></p>
+    </div>
+
+    <div>
+        <label>Bill 3: $</label>
+        <input class="bill-input" type="number" value="44">
+        <p>Tip: <span class="tip-output">$0.00</span></p>
+        <p>Total: <span class="total-output">$0.00</span></p>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+</body>
+
+</html>

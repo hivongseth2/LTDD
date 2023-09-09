@@ -18,7 +18,7 @@
             const money = parseFloat(document.getElementById("input").value)
             const result = document.getElementById("result")
 
-            const tip = money > 50 && money < 300 ? money / 100 * 15 : money <= 50 ? money = 0 : money / 100 * 20;
+            const tip = money > 50 && money < 300 ? money / 100 * 15 : money <= 50 ? 0 : money / 100 * 20;
 
             result.value = tip
         }

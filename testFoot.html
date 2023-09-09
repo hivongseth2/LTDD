@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Betting App</title>
+</head>
+
+<body>
+    <h1>Football Betting App</h1>
+
+    <script>
+        // Game data (place your JavaScript code here)
+
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borrussia Dortmund',
+            players: [
+                'Neuer',
+                'Kimmich',
+                'Goretzka',
+                'Alaba',
+                'Davies',
+                'Muller',
+                'Sane',
+                'Gnabry',
+                'Lewandowski',
+                'Choupo-Moting'
+            ],
+            score: '4:0',
+            scored: ['Davies', 'Muller', 'Lewandowski', 'Kimmich'],
+            date: 'Nov 9th, 2037',
+            odds: {
+                team1: 1.33,
+                x: 3.25,
+                team2: 6.5
+            }
+        };
+
+        // Task 1: Create player arrays for each team
+        const players1 = [...game.players];
+        const players2 = ['Courtois', 'Hakimi', 'Varane', 'Ramos', 'Marcelo', 'Casemiro', 'Modric', 'Kroos', 'Benzema', 'Vinicius'];
+
+        // Task 2: Create 'gk' and 'fieldPlayers' for Bayern Munich (team 1)
+        const [gk, ...fieldPlayers] = players1;
+
+        // Task 3: Create 'allPlayers' containing all players of both teams
+        const allPlayers = [...players1, ...players2];
+
+        // Task 4: Create 'players1Final' with original team1 players plus substitutes
+        const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+        // Task 5: Create variables for odds
+        const { team1, x: draw, team2 } = game.odds;
+
+        // Task 6: Write the 'printGoals' function
+        function printGoals(...players) {
+            console.log(`${players.length} goals were scored by:`);
+            players.forEach(player => console.log(player));
+        }
+
+        // Test Task 6 with specified players
+        printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+
+        // Test Task 6 with players from 'scored'
+        printGoals(...game.scored);
+
+        // Task 7: Determine which team is more likely to win
+        team1 < team2 && console.log(`${game.team1} is more likely to win.`);
+        team1 > team2 && console.log(`${game.team2} is more likely to win.`);
+    </script>
+</body>
+
+</html>

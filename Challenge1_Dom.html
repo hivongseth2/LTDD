@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Number Guessing Game</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #message {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+        <p>Đoán 1 số từ 1 - 20</p>
+        <input type="number" id="guess" min="1" max="20">
+        <button id="check">Check</button>
+        <p id="message"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button class="again">Try Again</button>
+    </div>
+
+    <script>
+        // JavaScript code
+        var secretNumber = Math.floor(Math.random() * 20) + 1;
+        let score = 0;
+
+        document.getElementById('check').addEventListener('click', function () {
+            const guess = Number(document.getElementById('guess').value);
+
+            if (!guess || guess < 1 || guess > 20) {
+                document.getElementById('message').textContent = 'Nhập 1 số từ 1-20.';
+            } else if (guess === secretNumber) {
+                document.getElementById('message').textContent = 'Chúc mừng bạn đã đoán trúng.';
+                document.body.style.backgroundColor = '#60b347';
+                document.getElementById('guess').style.width = '15rem';
+                score++;
+                secretNumber = Math.floor(Math.random() * 20) + 1;
+
+                document.getElementById('score').textContent = score;
+            } else {
+                const message = guess > secretNumber ? 'Số lớn hơn số bí mật!.' : 'Bé hơn số bí mật.';
+                document.body.style.backgroundColor = '#FF5733';
+                document.getElementById('message').textContent = message;
+            }
+        });
+
+        document.querySelector('.again').addEventListener('click', function () {
+
+            secretNumber = Math.floor(Math.random() * 20) + 1;
+            score = 0;
+
+            document.getElementById('message').textContent = 'Đoán 1 số từ 1 - 20';
+            document.getElementById('guess').value = '';
+            document.body.style.backgroundColor = '#222';
+            document.getElementById('guess').style.width = '15rem';
+            document.getElementById('score').textContent = '0';
+        });
+    </script>
+</body>
+
+</html>
